@@ -1,0 +1,896 @@
+```css
+/* ==============================
+   CONFIGURACIÓN GENERAL
+   ============================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #fff8fb;
+    color: #333;
+}
+
+
+/* ==============================
+   ENCABEZADO
+   ============================== */
+
+.encabezado {
+    background-color: #ffffff;
+    padding: 15px 40px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    width: 55px;
+    height: 55px;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+
+/* ==============================
+   MENÚ
+   ============================== */
+
+.menu {
+    margin-top: 15px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #333;
+    margin-right: 20px;
+    font-weight: bold;
+}
+
+
+/* PRUEBA HOVER */
+
+.menu a:hover {
+    text-decoration: underline;
+}
+
+
+/* ==============================
+   BANNER
+   ============================== */
+
+.banner {
+    min-height: 400px;
+    background-image: url("../img/banner.jpg");
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    padding: 40px;
+}
+
+.banner-contenido {
+    background-color: rgba(255, 255, 255, 0.88);
+    padding: 35px;
+    max-width: 700px;
+}
+
+.banner-contenido h2 {
+    font-size: 35px;
+    margin-top: 0;
+}
+
+
+/* ==============================
+   BOTONES
+   ============================== */
+
+.boton,
+.boton-secundario {
+    display: inline-block;
+    padding: 12px 22px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.boton {
+    background-color: #b76e79;
+    color: white;
+}
+
+.boton:hover {
+    opacity: 0.8;
+}
+
+.boton-secundario {
+    background-color: #f2d6dc;
+    color: #333;
+}
+
+.boton-secundario:hover {
+    background-color: #e6b8c1;
+}
+
+
+/* ==============================
+   PRESENTACIÓN
+   ============================== */
+
+.presentacion {
+    max-width: 1000px;
+    margin: auto;
+    padding: 50px 25px;
+    text-align: center;
+}
+
+
+/* ==============================
+   SERVICIOS DESTACADOS
+   ============================== */
+
+.destacados {
+    padding: 40px 25px;
+    text-align: center;
+}
+
+.contenedor-servicios {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    text-align: center;
+}
+
+.tarjeta {
+    display: inline-block;
+    vertical-align: top;
+
+    width: 280px;
+    margin: 10px;
+
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+
+    transition: 0.3s;
+}
+
+.tarjeta img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+
+/* PRUEBA HOVER DE TARJETAS */
+
+.tarjeta:hover {
+    transform: translateY(-5px);
+}
+
+
+/* ==============================
+   CONTENIDO DESTACADO
+   ============================== */
+
+.contenido-destacado {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 30px;
+    text-align: center;
+    background-color: #f7e8ec;
+}
+
+
+/* ==============================
+   LLAMADA A LA ACCIÓN
+   ============================== */
+
+.llamada-accion {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+
+/* ==============================
+   PIE DE PÁGINA
+   ============================== */
+
+.pie {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.redes a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.redes a:hover {
+    text-decoration: underline;
+}
+
+/* =========================================
+   PAGINA DE SERVICIOS
+   ========================================= */
+
+.titulo-pagina {
+    text-align: center;
+    padding: 45px 20px 25px;
+}
+
+.titulo-pagina h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.titulo-pagina p {
+    font-size: 17px;
+}
+
+
+.lista-servicios {
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+
+.servicio {
+    display: inline-block;
+    vertical-align: top;
+    width: 29%;
+    margin: 1%;
+    padding: 20px;
+
+    background-color: white;
+
+    border-radius: 8px;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+
+    transition: 0.3s;
+}
+
+
+.servicio img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+
+.servicio h3 {
+    margin-top: 15px;
+}
+
+
+.servicio:hover {
+    transform: translateY(-5px);
+}
+
+
+.tabla-servicios {
+    width: 90%;
+    max-width: 900px;
+
+    margin: 50px auto;
+
+    text-align: center;
+}
+
+
+.tabla-servicios table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    background-color: white;
+}
+
+
+.tabla-servicios th,
+.tabla-servicios td {
+
+    border: 1px solid #dddddd;
+
+    padding: 12px;
+
+}
+
+
+.tabla-servicios th {
+
+    background-color: #f2d6dc;
+
+}
+
+
+.tabla-servicios tr:hover {
+
+    background-color: #fff0f3;
+
+}
+
+
+.llamada-accion {
+
+    padding: 50px 20px;
+
+    text-align: center;
+
+}
+
+.icono-servicio {
+
+    width: 70px;
+    height: 70px;
+
+    margin: 10px auto;
+
+    transition: 0.3s;
+}
+
+
+.icono-servicio:hover {
+
+    transform: scale(1.15);
+
+}
+
+/* =========================================
+   PAGINA DE PRODUCTOS
+   ========================================= */
+
+
+.lista-productos {
+
+    width: 90%;
+
+    max-width: 1000px;
+
+    margin: 20px auto;
+
+    text-align: center;
+
+}
+
+
+.producto {
+
+    display: inline-block;
+
+    vertical-align: top;
+
+    width: 29%;
+
+    margin: 1%;
+
+    padding: 20px;
+
+    background-color: white;
+
+    border-radius: 8px;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+
+    transition: 0.3s;
+
+}
+
+
+.producto:hover {
+
+    transform: translateY(-5px);
+
+}
+
+
+.imagen-producto,
+.producto img {
+    width: 100%;
+    max-width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 6px;
+    display: block;
+}
+
+
+.icono-producto:hover {
+
+    transform: scale(1.15);
+
+}
+
+
+.precio {
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    color: #b76e79;
+
+}
+
+
+.tabla-productos {
+
+    width: 90%;
+
+    max-width: 900px;
+
+    margin: 50px auto;
+
+    text-align: center;
+
+}
+
+
+.tabla-productos table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    background-color: white;
+
+}
+
+
+.tabla-productos th,
+.tabla-productos td {
+
+    border: 1px solid #dddddd;
+
+    padding: 12px;
+
+}
+
+
+.tabla-productos th {
+
+    background-color: #f2d6dc;
+
+}
+
+
+.tabla-productos tr:hover {
+
+    background-color: #fff0f3;
+
+}
+/* =========================================
+   PAGINA SPA
+   ========================================= */
+
+
+.spa-contenido {
+
+    width: 90%;
+
+    max-width: 1000px;
+
+    margin: 30px auto;
+
+    text-align: center;
+
+}
+
+
+.spa-info {
+
+    display: inline-block;
+
+    vertical-align: top;
+
+    width: 40%;
+
+    margin: 2%;
+
+    padding: 25px;
+
+    background-color: white;
+
+    border-radius: 8px;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+
+    transition: 0.3s;
+
+}
+
+
+.spa-info:hover {
+
+    transform: translateY(-5px);
+
+}
+
+
+.informacion-spa {
+
+    width: 85%;
+
+    max-width: 900px;
+
+    margin: 40px auto;
+
+    padding: 30px;
+
+    text-align: center;
+
+    background-color: #f7e8ec;
+
+}
+
+
+.video-spa {
+
+    text-align: center;
+
+    margin: 50px auto;
+
+}
+
+
+.video-spa iframe {
+
+    max-width: 90%;
+
+    border: none;
+
+}
+
+
+.mensaje-movimiento {
+
+    width: 90%;
+
+    max-width: 900px;
+
+    margin: 40px auto;
+
+    padding: 15px;
+
+    background-color: #f2d6dc;
+
+    font-weight: bold;
+
+}
+/* =========================================
+   FORMULARIO DE RESERVAS
+   ========================================= */
+
+
+.formulario-reserva {
+
+    width: 90%;
+
+    max-width: 750px;
+
+    margin: 30px auto;
+
+}
+
+
+.formulario-reserva form {
+
+    background-color: white;
+
+    padding: 30px;
+
+    border-radius: 8px;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+
+}
+
+
+.formulario-reserva fieldset {
+
+    border: 1px solid #dddddd;
+
+    padding: 20px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.formulario-reserva legend {
+
+    font-weight: bold;
+
+    padding: 0 10px;
+
+    color: #b76e79;
+
+}
+
+
+.formulario-reserva label {
+
+    display: block;
+
+    margin-top: 12px;
+
+    margin-bottom: 5px;
+
+    font-weight: bold;
+
+}
+
+
+.formulario-reserva input,
+.formulario-reserva select,
+.formulario-reserva textarea {
+
+    width: 100%;
+
+    padding: 10px;
+
+    border: 1px solid #cccccc;
+
+    border-radius: 5px;
+
+    font-family: Arial, sans-serif;
+
+}
+
+
+.formulario-reserva textarea {
+
+    height: 100px;
+
+    resize: vertical;
+
+}
+
+
+.formulario-reserva input:focus,
+.formulario-reserva select:focus,
+.formulario-reserva textarea:focus {
+
+    border-color: #b76e79;
+
+    outline: none;
+
+}
+
+
+.checkbox {
+
+    font-weight: normal !important;
+
+}
+
+
+.checkbox input {
+
+    width: auto;
+
+}
+
+
+.boton-formulario,
+.boton-limpiar {
+
+    padding: 12px 22px;
+
+    border: none;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    margin-top: 10px;
+
+}
+
+
+.boton-formulario {
+
+    background-color: #b76e79;
+
+    color: white;
+
+}
+
+
+.boton-formulario:hover {
+
+    opacity: 0.8;
+
+}
+
+
+.boton-limpiar {
+
+    background-color: #dddddd;
+
+    color: #333333;
+
+    margin-left: 8px;
+
+}
+
+
+.boton-limpiar:hover {
+
+    background-color: #cccccc;
+
+}
+
+
+.informacion-reserva {
+
+    width: 85%;
+
+    max-width: 800px;
+
+    margin: 40px auto;
+
+    padding: 25px;
+
+    text-align: center;
+
+    background-color: #f7e8ec;
+
+}
+/* =========================================
+   PAGINA DE CONTACTO
+   ========================================= */
+
+
+.datos-contacto {
+
+    width: 90%;
+
+    max-width: 900px;
+
+    margin: 30px auto;
+
+    text-align: center;
+
+}
+
+
+.contacto-info {
+
+    display: inline-block;
+
+    vertical-align: top;
+
+    width: 40%;
+
+    margin: 2%;
+
+    padding: 25px;
+
+    background-color: white;
+
+    border-radius: 8px;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+
+    transition: 0.3s;
+
+}
+
+
+.contacto-info:hover {
+
+    transform: translateY(-5px);
+
+}
+
+
+.formulario-contacto {
+
+    width: 90%;
+
+    max-width: 700px;
+
+    margin: 40px auto;
+
+}
+
+
+.formulario-contacto form {
+
+    padding: 30px;
+
+    background-color: white;
+
+    border-radius: 8px;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+
+}
+
+
+.formulario-contacto label {
+
+    display: block;
+
+    margin-top: 15px;
+
+    margin-bottom: 5px;
+
+    font-weight: bold;
+
+}
+
+
+.formulario-contacto input,
+.formulario-contacto textarea {
+
+    width: 100%;
+
+    padding: 10px;
+
+    border: 1px solid #cccccc;
+
+    border-radius: 5px;
+
+}
+
+
+.formulario-contacto textarea {
+
+    height: 120px;
+
+    resize: vertical;
+
+}
+
+
+.formulario-contacto input:focus,
+.formulario-contacto textarea:focus {
+
+    border-color: #b76e79;
+
+    outline: none;
+
+}
+
+
+.formulario-contacto .boton-formulario {
+
+    margin-top: 15px;
+
+}
+.icono-servicio {
+    display: none !important;
+}
+.imagen-spa {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+```

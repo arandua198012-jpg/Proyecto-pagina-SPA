@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100">
+
+    <circle cx="50" cy="50" r="40" fill="#f2d6dc"/>
+
+    <path d="M50 72 C37 62 27 52 27 40 C27 30 37 25 45 32 L50 37 L55 32 C63 25 73 30 73 40 C73 52 63 62 50 72Z" fill="#b76e79"/>
+
+    <text x="105" y="48" font-family="Arial, sans-serif" font-weight="bold" font-size="22" fill="#b76e79">Belleza</text>
+    <text x="105" y="72" font-family="Arial, sans-serif" font-weight="normal" font-size="18" fill="#555555">Serena</text>
+</svg>

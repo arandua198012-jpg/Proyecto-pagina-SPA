@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Reserva tu cita en Belleza Serena">
+
+    <meta name="keywords"
+          content="reservas, belleza, spa, citas">
+
+    <meta name="author"
+          content="Equipo Belleza Serena">
+
+    <title>Reservas | Belleza Serena</title>
+
+    <link rel="stylesheet"
+          href="css/estilos.css">
+
+</head>
+
+
+<body>
+
+
+<header class="encabezado">
+
+    <div class="logo">
+
+        <img src="img/logo.svg"
+             alt="Logo de Belleza Serena">
+
+        <h1>Belleza Serena</h1>
+
+    </div>
+
+
+    <nav class="menu">
+
+        <a href="index.html">Inicio</a>
+
+        <a href="servicios.html">Servicios</a>
+
+        <a href="productos.html">Productos</a>
+
+        <a href="spa.html">Spa</a>
+
+        <a href="reservas.html">Reservas</a>
+
+        <a href="contacto.html">Contacto</a>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+
+<section class="titulo-pagina">
+
+    <h2>Reserva tu cita</h2>
+
+    <p>
+        Completa el siguiente formulario
+        para solicitar una cita en Belleza Serena.
+    </p>
+
+</section>
+
+
+<section class="formulario-reserva">
+
+
+<form>
+
+
+    <fieldset>
+
+        <legend>Datos personales</legend>
+
+
+        <label for="nombre">
+            Nombre:
+        </label>
+
+        <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            placeholder="Escribe tu nombre"
+            required>
+
+
+        <label for="apellido">
+            Apellido:
+        </label>
+
+        <input
+            type="text"
+            id="apellido"
+            name="apellido"
+            placeholder="Escribe tu apellido"
+            required>
+
+
+        <label for="correo">
+            Correo electrónico:
+        </label>
+
+        <input
+            type="email"
+            id="correo"
+            name="correo"
+            placeholder="ejemplo@correo.com"
+            required>
+
+
+        <label for="telefono">
+            Teléfono:
+        </label>
+
+        <input
+            type="tel"
+            id="telefono"
+            name="telefono"
+            placeholder="999999999"
+            required>
+
+    </fieldset>
+
+
+
+    <fieldset>
+
+        <legend>Datos de la reserva</legend>
+
+
+        <label for="servicio">
+            Selecciona un servicio:
+        </label>
+
+        <select
+            id="servicio"
+            name="servicio"
+            required>
+
+            <option value="">
+                Selecciona una opción
+            </option>
+
+            <option value="facial">
+                Cuidado Facial
+            </option>
+
+            <option value="masaje">
+                Masaje Relajante
+            </option>
+
+            <option value="aromaterapia">
+                Aromaterapia
+            </option>
+
+        </select>
+
+
+        <label for="fecha">
+            Fecha:
+        </label>
+
+        <input
+            type="date"
+            id="fecha"
+            name="fecha"
+            required>
+
+
+        <label for="hora">
+            Hora:
+        </label>
+
+        <input
+            type="time"
+            id="hora"
+            name="hora"
+            required>
+
+
+        <label for="comentario">
+            Comentarios:
+        </label>
+
+        <textarea
+            id="comentario"
+            name="comentario"
+            placeholder="Escribe algún comentario o solicitud">
+        </textarea>
+
+    </fieldset>
+
+
+    <fieldset>
+
+        <legend>Confirmación</legend>
+
+
+        <label class="checkbox">
+
+            <input
+                type="checkbox"
+                name="aceptar"
+                required>
+
+            Acepto que mis datos sean utilizados
+            para gestionar mi reserva.
+
+        </label>
+
+
+    </fieldset>
+
+
+    <button
+        type="submit"
+        class="boton-formulario">
+
+        Enviar reserva
+
+    </button>
+
+
+    <button
+        type="reset"
+        class="boton-limpiar">
+
+        Limpiar formulario
+
+    </button>
+
+
+</form>
+
+
+</section>
+
+
+<section class="informacion-reserva">
+
+    <h2>Información</h2>
+
+    <p>
+        Una vez enviada la solicitud,
+        nuestro personal podrá comunicarse
+        contigo para confirmar la disponibilidad.
+    </p>
+
+</section>
+
+
+</main>
+
+
+<footer class="pie">
+
+    <p>
+        &copy; 2026 Belleza Serena.
+        Todos los derechos reservados.
+    </p>
+
+    <p>
+        Belleza, cuidado y bienestar en un solo lugar.
+    </p>
+
+
+    <div class="redes">
+
+        <a href="https://www.facebook.com/"
+           target="_blank">
+            Facebook
+        </a>
+
+        <a href="https://www.instagram.com/"
+           target="_blank">
+            Instagram
+        </a>
+
+    </div>
+
+</footer>
+
+
+</body>
+
+</html>
