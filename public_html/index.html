@@ -1,195 +1,222 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Belleza Serena - Servicios de belleza, cuidado personal y bienestar.">
-    <meta name="keywords" content="belleza, spa, aromaterapia, cuidado de la piel, salón">
-    <meta name="author" content="Equipo Belleza Serena">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Belleza Serena - Servicios de belleza, cuidado personal y bienestar.">
+        <meta name="keywords" content="belleza, spa, aromaterapia, cuidado de la piel, salón">
+        <meta name="author" content="Equipo Belleza Serena">
 
-    <title>Belleza Serena | Belleza y Bienestar</title>
+        <title>Belleza Serena | Belleza y Bienestar</title>
 
-    <link rel="stylesheet" href="css/estilos.css">
-</head>
+        <link rel="stylesheet" href="CSS/estilos.css">
+    </head>
 
-<body>
+    <body>
 
-    <header class="encabezado">
+        <header class="encabezado">
 
-        <div class="logo">
-            <img src="img/logo.svg" alt="Logo de Belleza Serena">
-            <h1>Belleza Serena</h1>
-        </div>
+            <div class="logo">
+                <img src="IMG/logo.svg" alt="Logo de Belleza Serena">
+                <h1>Belleza Serena</h1>
+            </div>
 
-        <nav class="menu">
-            <a href="index.html">Inicio</a>
-            <a href="servicios.html">Servicios</a>
-            <a href="productos.html">Productos</a>
-            <a href="spa.html">Spa</a>
-            <a href="reservas.html">Reservas</a>
-            <a href="contacto.html">Contacto</a>
-        </nav>
+            <nav class="menu">
+                <a href="index.html">Inicio</a>
+                <a href="servicios.html">Servicios</a>
+                <a href="productos.html">Productos</a>
+                <a href="spa.html">Spa</a>
+                <a href="reservas.html">Reservas</a>
+                <a href="contacto.html">Contacto</a>
+            </nav>
 
-    </header>
+        </header>
 
 
-    <main>
+        <main>
 
-        <section class="banner">
+            <section class="banner">
 
-            <div class="banner-contenido">
+                <div class="banner-contenido">
 
-                <h2>Belleza que inspira, bienestar que transforma</h2>
+                    <h2>Belleza que inspira, bienestar que transforma</h2>
+
+                    <p>
+                        Descubre nuestros servicios de belleza, cuidado personal
+                        y relajación pensados para ti.
+                    </p>
+
+                    <a href="reservas.html"
+                       class="boton"
+                       onclick="mostrarMensaje()">
+
+                        Reserva tu cita
+
+                    </a>
+
+                </div>
+
+            </section>
+
+            <section class="presentacion">
+
+                <h2>Bienvenidos a Belleza Serena</h2>
 
                 <p>
-                    Descubre nuestros servicios de belleza, cuidado personal
-                    y relajación pensados para ti.
+                    Somos un espacio dedicado al cuidado personal y al bienestar,
+                    donde combinamos belleza, relajación y atención personalizada.
+                </p>
+
+                <p>
+                    Nuestro objetivo es ofrecer una experiencia agradable mediante
+                    servicios de cuidado de la piel, aromaterapia, masajes y
+                    tratamientos de belleza.
+                </p>
+
+            </section>
+
+            <section class="destacados">
+
+                <h2>Servicios destacados</h2>
+
+                <div class="contenedor-servicios">
+
+                    <article class="tarjeta">
+
+                        <img src="IMG/facial.jpg"
+                             alt="Tratamiento facial">
+
+                        <h3>Cuidado Facial</h3>
+
+                        <p>
+                            Tratamientos para mantener una piel limpia,
+                            hidratada y saludable.
+                        </p>
+
+                        <a href="servicios.html" class="boton-secundario">
+                            Ver servicio
+                        </a>
+
+                    </article>
+
+
+                    <article class="tarjeta">
+
+                        <img src="img/masaje.jpg"
+                             alt="Masaje relajante">
+
+                        <h3>Masajes</h3>
+
+                        <p>
+                            Espacios de relajación diseñados para ayudarte
+                            a liberar tensión y descansar.
+                        </p>
+
+                        <a href="servicios.html" class="boton-secundario">
+                            Ver servicio
+                        </a>
+
+                    </article>
+
+
+                    <article class="tarjeta">
+
+                        <img src="img/aromaterapia.jpg"
+                             alt="Aromaterapia">
+
+                        <h3>Aromaterapia</h3>
+
+                        <p>
+                            Una experiencia basada en aromas y aceites
+                            esenciales para crear un ambiente relajante.
+                        </p>
+
+                        <a href="spa.html" class="boton-secundario">
+                            Conocer más
+                        </a>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+            <aside class="contenido-destacado">
+
+                <h2>Una experiencia pensada para ti</h2>
+
+                <p>
+                    En Belleza Serena buscamos que cada visita sea un momento
+                    para desconectarte de la rutina y dedicar tiempo a tu
+                    bienestar personal.
+                </p>
+
+            </aside>
+
+            <section class="blog">
+                <h2>Consejos de bienestar</h2>
+
+                <article class="entrada-blog">
+                    <h3>Beneficios de la aromaterapia</h3>
+                    <p>
+                        La aromaterapia utiliza aromas y aceites esenciales para crear
+                        ambientes agradables que pueden acompañar momentos de relajación.
+                    </p>
+                    <a href="spa.html" class="boton-secundario">Leer más</a>
+                </article>
+
+                <article class="entrada-blog">
+                    <h3>Cuidados básicos de la piel</h3>
+                    <p>
+                        Mantener una rutina de limpieza e hidratación ayuda a conservar
+                        la piel en mejores condiciones y favorece el cuidado personal.
+                    </p>
+                    <a href="productos.html" class="boton-secundario">Conocer productos</a>
+                </article>
+            </section>
+
+            <section class="llamada-accion">
+
+                <h2>¿Listo para disfrutar de un momento para ti?</h2>
+
+                <p>
+                    Conoce nuestros servicios y reserva tu próxima experiencia.
                 </p>
 
                 <a href="reservas.html" class="boton">
-                    Reserva tu cita
+                    Reservar ahora
+                </a>
+
+            </section>
+
+        </main>
+
+        <footer class="pie">
+
+            <p>
+                &copy; 2026 Belleza Serena. Todos los derechos reservados.
+            </p>
+
+            <p>
+                Belleza, cuidado y bienestar en un solo lugar.
+            </p>
+
+            <div class="redes">
+
+                <a href="https://www.facebook.com/" target="_blank">
+                    Facebook
+                </a>
+
+                <a href="https://www.instagram.com/" target="_blank">
+                    Instagram
                 </a>
 
             </div>
 
-        </section>
+        </footer>
 
-        <section class="presentacion">
+        <script src="JS/funciones.js"></script>
 
-            <h2>Bienvenidos a Belleza Serena</h2>
-
-            <p>
-                Somos un espacio dedicado al cuidado personal y al bienestar,
-                donde combinamos belleza, relajación y atención personalizada.
-            </p>
-
-            <p>
-                Nuestro objetivo es ofrecer una experiencia agradable mediante
-                servicios de cuidado de la piel, aromaterapia, masajes y
-                tratamientos de belleza.
-            </p>
-
-        </section>
-
-        <section class="destacados">
-
-            <h2>Servicios destacados</h2>
-
-            <div class="contenedor-servicios">
-
-                <article class="tarjeta">
-
-                    <img src="img/facial.jpg"
-                         alt="Tratamiento facial">
-
-                    <h3>Cuidado Facial</h3>
-
-                    <p>
-                        Tratamientos para mantener una piel limpia,
-                        hidratada y saludable.
-                    </p>
-
-                    <a href="servicios.html" class="boton-secundario">
-                        Ver servicio
-                    </a>
-
-                </article>
-
-
-                <article class="tarjeta">
-
-                    <img src="img/masaje.jpg"
-                         alt="Masaje relajante">
-
-                    <h3>Masajes</h3>
-
-                    <p>
-                        Espacios de relajación diseñados para ayudarte
-                        a liberar tensión y descansar.
-                    </p>
-
-                    <a href="servicios.html" class="boton-secundario">
-                        Ver servicio
-                    </a>
-
-                </article>
-
-
-                <article class="tarjeta">
-
-                    <img src="img/aromaterapia.jpg"
-                         alt="Aromaterapia">
-
-                    <h3>Aromaterapia</h3>
-
-                    <p>
-                        Una experiencia basada en aromas y aceites
-                        esenciales para crear un ambiente relajante.
-                    </p>
-
-                    <a href="spa.html" class="boton-secundario">
-                        Conocer más
-                    </a>
-
-                </article>
-
-            </div>
-
-        </section>
-
-        <aside class="contenido-destacado">
-
-            <h2>Una experiencia pensada para ti</h2>
-
-            <p>
-                En Belleza Serena buscamos que cada visita sea un momento
-                para desconectarte de la rutina y dedicar tiempo a tu
-                bienestar personal.
-            </p>
-
-        </aside>
-
-        <section class="llamada-accion">
-
-            <h2>¿Listo para disfrutar de un momento para ti?</h2>
-
-            <p>
-                Conoce nuestros servicios y reserva tu próxima experiencia.
-            </p>
-
-            <a href="reservas.html" class="boton">
-                Reservar ahora
-            </a>
-
-        </section>
-
-    </main>
-
-    <footer class="pie">
-
-        <p>
-            &copy; 2026 Belleza Serena. Todos los derechos reservados.
-        </p>
-
-        <p>
-            Belleza, cuidado y bienestar en un solo lugar.
-        </p>
-
-        <div class="redes">
-
-            <a href="https://www.facebook.com/" target="_blank">
-                Facebook
-            </a>
-
-            <a href="https://www.instagram.com/" target="_blank">
-                Instagram
-            </a>
-
-        </div>
-
-    </footer>
-
-</body>
+    </body>
 </html>
 ```

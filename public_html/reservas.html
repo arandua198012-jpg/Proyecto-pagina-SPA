@@ -20,7 +20,7 @@
     <title>Reservas | Belleza Serena</title>
 
     <link rel="stylesheet"
-          href="css/estilos.css">
+          href="CSS/estilos.css">
 
 </head>
 
@@ -32,7 +32,7 @@
 
     <div class="logo">
 
-        <img src="img/logo.svg"
+        <img src="IMG/logo.svg"
              alt="Logo de Belleza Serena">
 
         <h1>Belleza Serena</h1>
@@ -129,7 +129,7 @@
             type="tel"
             id="telefono"
             name="telefono"
-            placeholder="999999999"
+            placeholder="Ingrese su número de teléfono"
             required>
 
     </fieldset>
@@ -165,6 +165,10 @@
             <option value="aromaterapia">
                 Aromaterapia
             </option>
+            
+            <option value="spa">
+                Experiencia Spa
+            </option>
 
         </select>
 
@@ -190,7 +194,17 @@
             name="hora"
             required>
 
+ <label for="metodo-contacto">
+            Método de contacto preferido:
+        </label>
 
+        <select id="metodo-contacto" name="metodo-contacto" required>
+            <option value="">Selecciona una opción</option>
+            <option value="telefono">Llamada telefónica</option>
+            <option value="whatsapp">WhatsApp</option>
+            <option value="correo">Correo electrónico</option>
+        </select> 
+        
         <label for="comentario">
             Comentarios:
         </label>
@@ -226,11 +240,12 @@
 
 
     <button
-        type="submit"
-        class="boton-formulario">
-
-        Enviar reserva
-
+        
+    type="submit"
+    class="boton-formulario"
+    onclick="confirmarReserva(event)">
+    Enviar reserva
+    
     </button>
 
 
@@ -292,7 +307,8 @@
     </div>
 
 </footer>
-
+    
+        <script src="js/funciones.js"></script>
 
 </body>
 

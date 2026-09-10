@@ -20,7 +20,7 @@
     <title>Contacto | Belleza Serena</title>
 
     <link rel="stylesheet"
-          href="css/estilos.css">
+          href="CSS/estilos.css">
 
 </head>
 
@@ -32,7 +32,7 @@
 
     <div class="logo">
 
-        <img src="img/logo.svg"
+        <img src="IMG/logo.svg"
              alt="Logo de Belleza Serena">
 
         <h1>Belleza Serena</h1>
@@ -108,13 +108,24 @@
             y consulta la zona de atención.
         </p>
 
-        <a href="https://www.google.com/maps/"
-           target="_blank"
-           class="boton-secundario">
-
-            Ver ubicación
-
+        <a href="https://www.google.com/maps"
+              target="_blank"
+              class="boton-secundario">
+               Ver ubicación en Google Maps
         </a>
+        
+        <section class="mapa">
+    <h2>Encuéntranos</h2>
+
+    <iframe
+        src="https://www.google.com/maps?q=Arequipa,Peru&output=embed"
+        width="600"
+        height="350"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy">
+    </iframe>
+   </section>
 
     </article>
 
@@ -166,17 +177,38 @@
         </textarea>
 
 
-        <button
-            type="submit"
-            class="boton-formulario">
-
-            Enviar mensaje
-
+        <button type="submit" class="boton-formulario" onclick="mostrarContacto()">
+            
+         Enviar mensaje
+         
         </button>
 
 
     </form>
 
+</section>
+    
+    <section class="horarios">
+    <h2>Horarios de atención</h2>
+
+    <table>
+        <tr>
+            <th>Día</th>
+            <th>Horario</th>
+        </tr>
+        <tr>
+            <td>Lunes a Viernes</td>
+            <td>9:00 a.m. - 7:00 p.m.</td>
+        </tr>
+        <tr>
+            <td>Sábado</td>
+            <td>9:00 a.m. - 5:00 p.m.</td>
+        </tr>
+        <tr>
+            <td>Domingo</td>
+            <td>Cerrado</td>
+        </tr>
+    </table>
 </section>
 
 
@@ -196,21 +228,16 @@
 
 
     <div class="redes">
-
-        <a href="https://www.facebook.com/"
-           target="_blank">
-            Facebook
-        </a>
-
-        <a href="https://www.instagram.com/"
-           target="_blank">
-            Instagram
-        </a>
-
+    <a href="https://www.facebook.com/" target="_blank">Facebook</a>
+    
+    <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+    
+    <a href="https://www.tiktok.com/" target="_blank">TikTok</a>
     </div>
 
 </footer>
-
+  
+     <script src="js/funciones.js"></script>
 
 </body>
 
