@@ -1,4 +1,4 @@
-```css
+
 /* ==============================
    CONFIGURACIÓN GENERAL
    ============================== */
@@ -1022,4 +1022,291 @@ body {
     background-color: #fff0f3;
 }
 
-```
+/* =========================================
+   BLOQUE 1: ANIMACIONES, TRANSICIONES Y TRANSFORMACIONES CSS
+   ========================================= */
+
+/* 1. Animación por Deslizamiento (Slide-in) para títulos principales */
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.titulo-pagina h2 {
+    animation-duration: 1.5s;
+    animation-name: slideInFromLeft;
+}
+
+/* 2. Animación por Fotogramas (@keyframes) con cambio de tamaño y margen */
+@keyframes pulsoSuave {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.03); background-color: #fce4ec; }
+    100% { transform: scale(1); }
+}
+
+.contenido-destacado, .informacion-spa {
+    animation: pulsoSuave 4s infinite;
+}
+
+/* 3 y 4. Animación por Repetición (con y sin alternado) para elementos de marquesina o avisos */
+.mensaje-movimiento marquee {
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+/* 5. Transición de Longitudes Diferentes en Tarjetas y Contenedores */
+.tarjeta, .servicio, .producto, .spa-info, .entrada-blog {
+    transition-property: transform, box-shadow, background-color;
+    transition-duration: 0.4s, 0.4s, 0.3s;
+    transition-timing-function: ease-in-out;
+}
+
+/* 6 y 7. Transición de Intervalos Parciales y Completos al pasar el cursor */
+.tarjeta:hover, .servicio:hover, .producto:hover, .spa-info:hover {
+    transform: translateY(-8px) scale(1.02); /* Transformación por desplazamiento vertical + escala */
+    box-shadow: 0 12px 25px rgba(183, 110, 121, 0.25);
+}
+
+/* 8. Transición de Eventos en Botones */
+.boton {
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.boton:hover {
+    transform: scale(1.05); /* Transformación por escala */
+}
+
+/* 9. Transformación por Rotación (para iconos o elementos decorativos de la marca) */
+.logo img {
+    transition: transform 0.6s ease;
+}
+
+.logo img:hover {
+    transform: rotate(360deg); /* Rota completamente al pasar el cursor */
+}
+
+/* 10. Transformación por Torsión (Skew) en imágenes o secciones específicas */
+.imagen-spa {
+    transition: transform 0.4s ease;
+}
+
+.spa-info:hover .imagen-spa {
+    transform: skewX(-2deg); /* Ligera torsión elegante */
+}
+
+/* 11. Transformación por Desplazamiento (Translate) en los enlaces del menú */
+.menu a {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.menu a:hover {
+    transform: translateY(-2px); /* Desplazamiento sutil hacia arriba */
+}
+
+/* =========================================
+   BLOQUE 2: DISEÑO WEB RESPONSIVO (MEDIA QUERIES)
+   ========================================= */
+
+/* 1. Imágenes y medios responsivos globales (Ajuste automático al 100%) */
+img, object, video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* 2. Pantallas Medianas / Tablets (Ancho máximo de 900px) */
+@media screen and (max-width: 900px) {
+    .encabezado {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    /* Las tarjetas de servicios y spa pasan a ocupar el 45% para acomodarse en pares */
+    .tarjeta, .servicio, .producto, .spa-info, .entrada-blog, .contacto-info {
+        width: 45%;
+        margin: 2%;
+    }
+}
+
+/* 3. Pantallas Pequeñas / Celulares (Ancho máximo de 600px) */
+@media screen and (max-width: 600px) {
+    .encabezado {
+        padding: 10px;
+    }
+
+    .logo h1 {
+        font-size: 20px;
+    }
+
+    .menu {
+        gap: 10px;
+    }
+
+    .menu a {
+        font-size: 13px;
+    }
+
+    /* En celulares, cada tarjeta, servicio o elemento se acomoda en una sola columna (100%) */
+    .tarjeta, .servicio, .producto, .spa-info, .entrada-blog, .contacto-info {
+        width: 96%;
+        margin: 2% auto;
+        display: block;
+    }
+
+    .banner-contenido h2 {
+        font-size: 28px;
+    }
+
+    .banner-contenido p {
+        font-size: 15px;
+    }
+}
+
+/* =========================================
+   MEJORAS ESTÉTICAS PROFESIONALES
+   ========================================= */
+
+/* 1. Importación de Fuentes Elegantes desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif; /* Texto limpio y legible */
+    background-color: #fcf8f9; /* Fondo crema/rosado ultra suave */
+    color: #4a4a4a;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif; /* Tipografía estilo Spa / Luxe */
+    letter-spacing: 0.5px;
+}
+
+/* 2. Banner Full Width (Sin bordes grises laterales) */
+.banner {
+    width: 100%;
+    min-height: 520px;
+    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.45)), 
+                url("../IMG/portada.jpg") center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.banner-contenido h2 {
+    font-size: 46px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 18px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+}
+
+.banner-contenido p {
+    font-size: 20px;
+    font-weight: 300;
+    color: #f3f3f3;
+    margin-bottom: 35px;
+}
+
+/* 3. Sección de Presentación Elegante */
+.presentacion {
+    max-width: 900px;
+    margin: 60px auto 40px;
+    padding: 0 25px;
+    text-align: center;
+}
+
+.presentacion h2 {
+    font-size: 36px;
+    color: #b76e79; /* Rosa dorado distintivo */
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+/* Detalle decorativo debajo del título */
+.presentacion h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #e6b8c1;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+.presentacion p {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #666666;
+}
+
+/* 4. Tarjetas de Servicios Rediseñadas */
+.destacados h2 {
+    font-size: 34px;
+    color: #333333;
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+.contenedor-servicios {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.tarjeta {
+    background: #ffffff;
+    border-radius: 14px;
+    overflow: hidden;
+    width: 320px;
+    box-shadow: 0 10px 25px rgba(183, 110, 121, 0.08); /* Sombra elegante rosa suave */
+    border: 1px solid #f2e3e6;
+    transition: all 0.4s ease;
+    text-align: center;
+    padding: 0 0 25px 0;
+}
+
+.tarjeta:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(183, 110, 121, 0.2);
+}
+
+.tarjeta img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-bottom: 3px solid #f7e8ec;
+}
+
+.tarjeta h3 {
+    font-size: 22px;
+    color: #b76e79;
+    margin: 20px 0 10px;
+}
+
+.tarjeta p {
+    font-size: 14px;
+    color: #666;
+    padding: 0 20px;
+    line-height: 1.6;
+}
