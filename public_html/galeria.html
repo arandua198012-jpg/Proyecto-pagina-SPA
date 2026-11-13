@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Galería de imágenes de las instalaciones y servicios de Belleza Serena">
+        <title>Galería | Belleza Serena</title>
+
+        <link rel="stylesheet" href="CSS/estilos.css">
+        
+        <!-- Estilo local para el zoom suave y fluido de las imágenes al pasar el mouse -->
+        <style>
+            .producto img.icono-producto {
+                transition: transform 0.4s ease-in-out;
+            }
+            .producto img.icono-producto:hover {
+                transform: scale(1.05);
+            }
+        </style>
+    </head>
+
+    <body>
+        <header class="encabezado">
+            <div class="logo">
+                <img src="IMG/logo.svg" alt="Logo de Belleza Serena">
+                <h1>Belleza Serena</h1>
+            </div>
+            
+            <nav class="menu">
+    <a href="index.html">Inicio</a>
+    <a href="servicios.html">Servicios</a>
+    <a href="servicios-detalle.html">Detalles</a>
+    <a href="productos.html">Productos</a>
+    <a href="spa.html">Spa</a>
+    <a href="promociones.html">Promociones</a>
+    <a href="nosotros.html">Nosotros</a>
+    <a href="galeria.html" class="activo">Galería</a>
+    <a href="testimonios.html">Testimonios</a>
+    <a href="reservas.html">Reservas</a>
+    <a href="ayuda.html">Ayuda</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="reclamos.html">Reclamos</a>
+    <a href="politicas.html">Políticas</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="titulo-pagina">
+                <h2>Galería de Instalaciones</h2>
+                <p>Echa un vistazo a nuestros espacios diseñados exclusivamente para tu comodidad, estética y relax.</p>
+            </section>
+
+            <section class="presentacion">
+                <h2>Nuestros Espacios</h2>
+                <p>Cada rincón de Belleza Serena está ambientado con iluminación cálida, música instrumental y aromatización para garantizar tu desconexión total.</p>
+            </section>
+
+            <section class="lista-productos">
+                <article class="producto">
+                    <img src="IMG/facial.jpg" alt="Sala de tratamientos faciales" class="icono-producto">
+                    <h3>Sala de Tratamientos</h3>
+                    <p>Espacios privados, limpios y acondicionados con tecnología estética avanzada para el cuidado de tu piel.</p>
+                </article>
+
+                <article class="producto">
+                    <img src="IMG/masaje.jpg" alt="Área de masajes" class="icono-producto">
+                    <h3>Área de Masoterapia</h3>
+                    <p>Camillas ergonómicas, aceites esenciales de primera calidad y un ambiente propicio para liberar tensiones.</p>
+                </article>
+
+                <article class="producto">
+                    <img src="IMG/spa-general.jpg" alt="Zona de Aromaterapia y Relax" class="icono-producto">
+                    <h3>Zona de Aromaterapia</h3>
+                    <p>Ambientes diseñados para estimular los sentidos mediante esencias naturales y vaporizadores especializados.</p>
+                </article>
+
+                <article class="producto">
+                    <img src="IMG/facial.jpg" alt="Área de Recepción y Espera" class="icono-producto">
+                    <h3>Recepción y Bienvenida</h3>
+                    <p>Un espacio cálido y acogedor donde te recibiremos con una infusión relajante antes de iniciar tu experiencia.</p>
+                </article>
+            </section>
+
+            <section class="titulo-pagina" style="margin-top: 40px;">
+                <h2>¿Te gustaría conocer nuestros espacios en persona?</h2>
+                <p>Reserva una cita o contáctanos para visitarnos en Arequipa.</p>
+                <a href="reservas.html" class="boton-formulario" style="display: inline-block; text-decoration: none; margin-top: 15px; padding: 12px 30px; border-radius: 25px;">RESERVA TU CITA</a>
+            </section>
+        </main>
+
+        <footer class="pie">
+            <p>&copy; 2026 Belleza Serena. Todos los derechos reservados.</p>
+            <p>Belleza, cuidado y bienestar en un solo lugar.</p>
+            <div class="redes">
+                <a href="https://www.facebook.com/" target="_blank">Facebook</a>
+                <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+            </div>
+        </footer>
+
+        <script src="JS/funciones.js"></script>
+    </body>
+</html>

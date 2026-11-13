@@ -2,8 +2,6 @@
    1. CONFIGURACIÓN GENERAL Y FUENTES
    ========================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -39,17 +37,17 @@ img, object, video, iframe {
 }
 
 /* =========================================
-   2. ENCABEZADO Y NAVEGACIÓN (ALINEADO A LA IZQUIERDA Y MEJORADO)
+   2. ENCABEZADO Y NAVEGACIÓN (AJUSTADO PARA 14 PÁGINAS)
    ========================================= */
 
 .encabezado {
     background-color: #fdfbf7; 
-    padding: 18px 4%;
+    padding: 15px 3%;
     border-bottom: 1px solid #ebdcd5;
     display: flex;
-    justify-content: flex-start; 
+    justify-content: space-between; /* Distribuye el espacio entre el logo y el menú perfectamente */
     align-items: center;
-    gap: 40px; 
+    gap: 20px; 
     width: 100%;
     position: sticky;
     top: 0;
@@ -60,12 +58,13 @@ img, object, video, iframe {
 .logo {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 10px;
+    flex-shrink: 0; /* Evita que el logo se deforme o comprima */
 }
 
 .logo img {
-    width: 60px; 
-    height: 60px;
+    width: 50px; 
+    height: 50px;
     object-fit: contain;
     transition: transform 0.5s ease;
 }
@@ -76,7 +75,7 @@ img, object, video, iframe {
 
 .logo h1 {
     margin: 0;
-    font-size: 28px; 
+    font-size: 24px; /* Ajustado ligeramente para dar espacio al menú */
     font-family: 'Playfair Display', serif;
     font-weight: 700;
     color: #b76e79;
@@ -87,17 +86,18 @@ img, object, video, iframe {
 .menu {
     display: flex;
     align-items: center;
-    gap: 22px;
+    gap: 10px; /* Espacio optimizado para que entren los 14 enlaces de forma holgada */
+    flex-wrap: nowrap;
 }
 
 .menu a {
     text-decoration: none;
     color: #4a4a4a;
     font-weight: 600; 
-    font-size: 16px; 
-    letter-spacing: 0.3px;
+    font-size: 13.5px; /* Tamaño optimizado para que las 14 pestañas entren perfectamente en una sola línea */
+    letter-spacing: 0.2px;
     white-space: nowrap;
-    padding: 6px 10px;
+    padding: 5px 8px;
     border-radius: 6px;
     transition: all 0.3s ease;
 }
@@ -107,7 +107,6 @@ img, object, video, iframe {
     background-color: #f5e6e8; 
     transform: translateY(-2px);
 }
-
 /* =========================================
    3. BANNER PRINCIPAL (HERO FULL-WIDTH MEJORADO)
    ========================================= */
@@ -1478,4 +1477,82 @@ h1, h2, h3 {
     color: #666;
     padding: 0 20px;
     line-height: 1.6;
+}
+/* =========================================
+   ESTILOS UNIFICADOS Y ANIMACIONES GLOBALES
+   ========================================= */
+
+/* --- 1. BLOQUES ENMARCADOS CON ANIMACIÓN DE RESPIRACIÓN --- */
+@keyframes latidoBox {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+    }
+    50% {
+        transform: scale(1.01);
+        box-shadow: 0 6px 20px rgba(212, 163, 115, 0.15);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+    }
+}
+
+.caja-politica-color {
+    background-color: #fceeee;
+    border: 1px solid #f2d6d6;
+    border-radius: 15px;
+    padding: 30px;
+    margin: 25px auto;
+    max-width: 800px;
+    text-align: left;
+    animation: latidoBox 4s infinite ease-in-out;
+}
+
+.caja-politica-color h2 {
+    color: #6b4f4f;
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+    border-bottom: 2px solid #ecd0d0;
+    padding-bottom: 8px;
+}
+
+.caja-politica-color p, 
+.caja-politica-color ul {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.caja-politica-color ul {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.caja-politica-color li {
+    margin-bottom: 8px;
+}
+
+/* --- 2. UNIFICACIÓN DE TARJETAS E IMÁGENES (MISMO TIEMPO Y FLUIDEZ) --- */
+.tarjeta, .servicio, .producto, .spa-info, .entrada-blog {
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+/* Zoom suave idéntico en todas las imágenes de tarjetas y productos (0.4s) */
+.tarjeta img, 
+.servicio img, 
+.producto img, 
+.spa-info img, 
+.entrada-blog img,
+.icono-producto {
+    transition: transform 0.4s ease-in-out !important;
+}
+
+.tarjeta:hover img, 
+.servicio:hover img, 
+.producto:hover img, 
+.spa-info:hover img, 
+.entrada-blog:hover img,
+.icono-producto:hover {
+    transform: scale(1.05);
 }

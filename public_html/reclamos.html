@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Libro de Reclamaciones - Belleza Serena">
+        <title>Belleza Serena | Libro de Reclamaciones</title>
+
+        <link rel="stylesheet" href="CSS/estilos.css">
+    </head>
+
+    <body>
+        
+<header class="encabezado">
+
+    <div class="logo">
+
+        <img src="IMG/logo.svg"
+             alt="Logo de Belleza Serena">
+
+        <h1>Belleza Serena</h1>
+
+    </div>
+
+    <nav class="menu">
+
+    <a href="index.html">Inicio</a>
+    <a href="servicios.html">Servicios</a>
+    <a href="servicios-detalle.html">Detalles</a>
+    <a href="productos.html">Productos</a>
+    <a href="spa.html">Spa</a>
+    <a href="promociones.html">Promociones</a>
+    <a href="nosotros.html">Nosotros</a>
+    <a href="galeria.html">Galería</a>
+    <a href="testimonios.html">Testimonios</a>
+    <a href="reservas.html">Reservas</a>
+    <a href="ayuda.html">Ayuda</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="reclamos.html" class="activo">Reclamos</a>
+    <a href="politicas.html">Políticas</a>
+
+    </nav>
+
+</header>
+
+
+        <main>
+            <section class="titulo-pagina">
+                <h2>Libro de Reclamaciones Virtual</h2>
+                <p>Conforme a lo establecido en el Código de Protección y Defensa del Consumidor, ponemos a tu disposición nuestro libro de reclamaciones.</p>
+            </section>
+
+            <section class="formulario-reserva">
+                <form onsubmit="mostrarContacto(event)">
+                    <fieldset>
+                        <legend>1. Identificación del Consumidor Reclamante</legend>
+                        
+                        <label for="nombre">Nombre completo:</label>
+                        <input type="text" id="nombre" required placeholder="Ingrese sus nombres y apellidos">
+                        
+                        <label for="email">Correo electrónico:</label>
+                        <input type="email" id="email" required placeholder="ejemplo@correo.com">
+
+                        <label for="telefono">Teléfono / Celular:</label>
+                        <input type="tel" id="telefono" required placeholder="999999999">
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>2. Detalle del Reclamo</legend>
+                        
+                        <label for="tipo">Tipo de solicitud:</label>
+                        <select id="tipo">
+                            <option>Reclamo (Disconformidad relacionada a los productos o servicios)</option>
+                            <option>Queja (Disconformidad no relacionada a la atención)</option>
+                        </select>
+
+                        <label for="detalle">Detalle de los hechos:</label>
+                        <textarea id="detalle" required placeholder="Describa detalladamente el motivo de su reclamo o queja..."></textarea>
+                    </fieldset>
+
+                    <button type="submit" class="boton-formulario">Enviar Reclamo</button>
+                    <button type="reset" class="boton-limpiar">Limpiar Campos</button>
+                </form>
+            </section>
+        </main>
+
+        <footer class="pie">
+            <div class="pie-contenido">
+                <p>&copy; 2026 Belleza Serena. Todos los derechos reservados.</p>
+                <p>Belleza, cuidado y bienestar en un solo lugar.</p>
+                <div class="redes">
+                    <a href="https://www.facebook.com/" target="_blank">Facebook</a>
+                    <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+                </div>
+            </div>
+        </footer>
+
+        <script src="JS/funciones.js"></script>
+    </body>
+</html>
