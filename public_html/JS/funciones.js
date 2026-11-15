@@ -1,16 +1,68 @@
 const matrizTratamientos = [
-    ["PROD01", "Masaje Relajante con Piedras Calientes", 80.00, 15],
-    ["PROD02", "Limpieza Facial Profunda con Hidratación", 95.00, 10],
-    ["PROD03", "Aromaterapia y Terapia de Velas", 70.00, 20],
-    ["PROD04", "Exfoliación Corporal Completa", 110.00, 8]
+    ["SRV01", "Cuidado Facial", 50.00, 15],
+    ["SRV02", "Masaje Relajante", 70.00, 15],
+    ["SRV03", "Aromaterapia", 45.00, 20],
+    ["PRD01", "Crema Hidratante (100 ml)", 35.00, 12],
+    ["PRD02", "Aceite Esencial (30 ml)", 28.00, 18],
+    ["PRD03", "Mascarilla Facial (80 g)", 30.00, 14],
+    ["PRM01", "Paquete Relax Total", 90.00, 10],
+    ["PRM02", "Dúo Facial Brillante", 110.00, 8],
+    ["PRM03", "Escapada Anti-estrés", 130.00, 8]
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
     generarReporteCatalogo();
     cargarSelectorTratamientos();
+    cargarSelectorReservaCompleto();
     cargarResumenEnReserva();
 });
 
+function cancelarCotizacionPrevia() {
+    localStorage.removeItem("cotizacionBellezaSerena");
+
+    const selectServicio = document.getElementById("servicio");
+    const labelServicio = document.getElementById("label-servicio-reserva");
+
+    if (labelServicio) {
+        labelServicio.textContent = "Selecciona un servicio o producto:";
+    }
+
+    cargarSelectorReservaCompleto();
+
+    if (selectServicio) {
+        selectServicio.selectedIndex = 0;
+    }
+
+    cargarResumenEnReserva();
+}
+
+function cargarSelectorReservaCompleto() {
+    const selectServicio = document.getElementById("servicio");
+    if (!selectServicio) return;
+
+    if (typeof matrizTratamientos === "undefined" || !Array.isArray(matrizTratamientos) || matrizTratamientos.length === 0) {
+        return;
+    }
+
+    const valorActual = selectServicio.value;
+    selectServicio.innerHTML = `<option value="">Selecciona una opción</option>`;
+
+    for (let i = 0; i < matrizTratamientos.length; i++) {
+        const item = matrizTratamientos[i];
+        const codigo = String(item[0]);
+        const nombre = String(item[1]);
+        const precio = Number(item[2]);
+
+        const opcion = document.createElement("option");
+        opcion.value = `${codigo} - ${nombre}`;
+        opcion.textContent = `${nombre} (${codigo}) — S/ ${precio.toFixed(2)}`;
+        selectServicio.appendChild(opcion);
+    }
+
+    if (valorActual) {
+        selectServicio.value = valorActual;
+    }
+}
 function generarReporteCatalogo(lista = matrizTratamientos, titulo = "Tarifario y Disponibilidad Oficial") {
     const contenedorReporte = document.getElementById("seccion-reporte-js");
     if (!contenedorReporte) return;
@@ -41,7 +93,7 @@ function generarReporteCatalogo(lista = matrizTratamientos, titulo = "Tarifario 
                 <td>${codigo}</td>
                 <td>${nombre}</td>
                 <td>S/ ${precio.toFixed(2)}</td>
-                <td>${agotado ? '<span class="badge-agotado">Agotado</span>' : stock + " sesiones"}</td>
+                <td>${agotado ? '<span class="badge-agotado">Agotado</span>' : stock + (String(codigo).startsWith("PRD") ? " unidades" : " sesiones")}</td>
                 <td>
                     <button type="button" class="btn-fila-seleccionar" onclick="seleccionarDesdeTabla('${codigo}')" ${agotado ? "disabled" : ""}>
                         ${agotado ? "Sin cupo" : "Elegir"}
@@ -85,6 +137,7 @@ function cargarSelectorTratamientos() {
             }
         }
     }
+    
 
     actualizarDatosSeleccion();
 }
@@ -136,7 +189,25 @@ function actualizarDatosSeleccion() {
         if (isNaN(cantActual) || cantActual > stock || cantActual < 1) {
             inputCantidad.value = 1;
         }
-        if (textoStock) textoStock.textContent = `Máximo disponible: ${stock} sesiones (15% dto. desde 3 sesiones)`;
+        const unidadTexto = String(tratamiento[0]).startsWith("PRD") ? "unidades" : "sesiones";
+        if (textoStock) textoStock.textContent = `Máximo disponible: ${stock} ${unidadTexto} (15% dto. desde 3 ${unidadTexto})`;
+
+        const etiquetaCantidad = document.getElementById("etiqueta-cantidad");
+        if (etiquetaCantidad) {
+            etiquetaCantidad.textContent = String(tratamiento[0]).startsWith("PRD") ? "Unidades:" : "N.º de sesiones:";
+        }
+    }
+
+    const etiquetaItem = document.getElementById("etiqueta-item");
+    if (etiquetaItem) {
+        const codigoActual = String(tratamiento[0]);
+        if (codigoActual.startsWith("PRD")) {
+            etiquetaItem.textContent = "Producto:";
+        } else if (codigoActual.startsWith("PRM")) {
+            etiquetaItem.textContent = "Promoción:";
+        } else {
+            etiquetaItem.textContent = "Servicio:";
+        }
     }
 
     ocultarAvisoValidacion();
@@ -186,11 +257,18 @@ function procesarCotizacionFormulario(evento) {
 
     const indice = buscarIndicePorCodigo(selector.value);
     if (indice === -1) {
-        mostrarAvisoValidacion("Seleccione un tratamiento válido del catálogo.");
+        mostrarAvisoValidacion("Seleccione una opción válida del catálogo.");
         return;
     }
 
     const tratamiento = matrizTratamientos[indice];
+    const codigoItem = String(tratamiento[0]);
+    const esProducto = codigoItem.startsWith("PRD");
+    const unidadDesc = esProducto ? "unidades" : "sesiones";
+    const labelCantidad = esProducto ? "Unidades solicitadas" : "Sesiones reservadas";
+    const labelTarifa = esProducto ? "Tarifa unitaria" : "Tarifa oficial por sesión";
+    const labelItem = esProducto ? "Producto" : (codigoItem.startsWith("PRM") ? "Promoción" : "Tratamiento");
+
     const stockActual = tratamiento[3];
     const cantidad = parseInt(inputCantidad.value, 10);
 
@@ -200,7 +278,7 @@ function procesarCotizacionFormulario(evento) {
     }
 
     if (cantidad > stockActual) {
-        mostrarAvisoValidacion(`Stock insuficiente. Solo quedan ${stockActual} sesiones disponibles.`);
+        mostrarAvisoValidacion(`Stock insuficiente. Solo quedan ${stockActual} ${unidadDesc} disponibles.`);
         return;
     }
 
@@ -209,7 +287,9 @@ function procesarCotizacionFormulario(evento) {
     const precioUnitario = tratamiento[2];
     const subtotal = precioUnitario * cantidad;
     const porcentajeDescuento = cantidad >= 3 ? 0.15 : 0.05;
-    const etiquetaDescuento = cantidad >= 3 ? "15% Paquete Bienestar (3+ sesiones)" : "5% Reserva Web";
+    const etiquetaDescuento = cantidad >= 3
+        ? `15% Paquete Bienestar (3+ ${unidadDesc})`
+        : "5% Reserva Web";
     const descuento = subtotal * porcentajeDescuento;
     const totalPagar = subtotal - descuento;
 
@@ -220,12 +300,13 @@ function procesarCotizacionFormulario(evento) {
     guardarResumenParaReserva(tratamiento[0], tratamiento[1], cantidad, totalPagar);
 
     divResultado.setAttribute("data-ultima-cotizacion", tratamiento[0]);
-    divResultado.innerHTML = `
+    divResultado.innerHTML =
+        `
         <div class="tarjeta-comprobante-cotizacion">
             <h4>Detalle de Cotización — Belleza Serena</h4>
-            <p><strong>Tratamiento:</strong> ${tratamiento[1]} (${tratamiento[0]})</p>
-            <p><strong>Tarifa oficial por sesión:</strong> S/ ${precioUnitario.toFixed(2)}</p>
-            <p><strong>Sesiones reservadas:</strong> ${cantidad}</p>
+            <p><strong>${labelItem}:</strong> ${tratamiento[1]} (${tratamiento[0]})</p>
+            <p><strong>${labelTarifa}:</strong> S/ ${precioUnitario.toFixed(2)}</p>
+            <p><strong>${labelCantidad}:</strong> ${cantidad}</p>
             <p><strong>Subtotal:</strong> S/ ${subtotal.toFixed(2)}</p>
             <p><strong>Beneficio aplicado (${etiquetaDescuento}):</strong> - S/ ${descuento.toFixed(2)}</p>
             <p class="total-cotizacion"><strong>Total a Pagar: S/ ${totalPagar.toFixed(2)}</strong></p>
@@ -340,23 +421,64 @@ function cargarResumenEnReserva() {
     }
 
     const datos = JSON.parse(guardado);
+    const codigoItem = String(datos.codigo || "");
+    const esProducto = codigoItem.startsWith("PRD");
+    const esPromocion = codigoItem.startsWith("PRM");
+
+    const etiquetaItem = esProducto ? "Producto" : (esPromocion ? "Promoción" : "Tratamiento");
+    const etiquetaCantidad = esProducto ? "Unidades cotizadas" : "Sesiones cotizadas";
+
     cajaResumen.innerHTML = `
         <div class="tarjeta-comprobante-cotizacion">
             <h4>Cotización Previa Seleccionada</h4>
-            <p><strong>Tratamiento:</strong> ${datos.nombre} (${datos.codigo})</p>
-            <p><strong>Sesiones cotizadas:</strong> ${datos.cantidad}</p>
+            <p><strong>${etiquetaItem}:</strong> ${datos.nombre} (${datos.codigo})</p>
+            <p><strong>${etiquetaCantidad}:</strong> ${datos.cantidad}</p>
             <p class="total-cotizacion"><strong>Total Estimado: S/ ${datos.totalPagar}</strong></p>
+            <button type="button" class="boton-limpiar" onclick="cancelarCotizacionPrevia()">
+                ${esProducto ? "Cancelar pedido previo" : "Cancelar cotización previa"}
+            </button>
         </div>
     `;
 
     const selectServicio = document.getElementById("servicio");
+    const labelServicio = document.getElementById("label-servicio-reserva");
+
+    if (labelServicio) {
+        if (esProducto) {
+            labelServicio.textContent = "Producto cotizado / seleccionado:";
+        } else if (esPromocion) {
+            labelServicio.textContent = "Promoción / servicio seleccionado:";
+        } else {
+            labelServicio.textContent = "Selecciona un servicio:";
+        }
+    }
+
     if (selectServicio) {
+        const valorItem = `${datos.codigo} - ${datos.nombre}`;
+        let existeOpcion = false;
+
+        for (let i = 0; i < selectServicio.options.length; i++) {
+            if (selectServicio.options[i].value === valorItem || selectServicio.options[i].text === valorItem) {
+                existeOpcion = true;
+                break;
+            }
+        }
+
+        if (!existeOpcion && datos.nombre) {
+            const nuevaOpcion = document.createElement("option");
+            nuevaOpcion.value = valorItem;
+            nuevaOpcion.textContent = valorItem;
+            selectServicio.appendChild(nuevaOpcion);
+        }
+
         const textoCotizado = datos.nombre.toLowerCase();
         for (let i = 0; i < selectServicio.options.length; i++) {
             const opcionTexto = selectServicio.options[i].text.toLowerCase();
+            const opcionValor = selectServicio.options[i].value.toLowerCase();
             if (
+                opcionValor === valorItem.toLowerCase() ||
                 (textoCotizado.includes("masaje") && selectServicio.options[i].value === "masaje") ||
-                (textoCotizado.includes("facial") && selectServicio.options[i].value === "facial") ||
+                (textoCotizado.includes("facial") && !esProducto && selectServicio.options[i].value === "facial") ||
                 (textoCotizado.includes("aromaterapia") && selectServicio.options[i].value === "aromaterapia") ||
                 (textoCotizado.includes("exfoliación") && selectServicio.options[i].value === "spa") ||
                 opcionTexto.includes(textoCotizado)
@@ -435,6 +557,7 @@ function confirmarReserva(evento) {
         `;
         exitoBox.style.display = "block";
         exitoBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        localStorage.removeItem("cotizacionBellezaSerena");
     }
 
     form.reset();

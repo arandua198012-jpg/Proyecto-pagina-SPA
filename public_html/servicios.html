@@ -169,7 +169,7 @@
 
     <section class="gestion-catalogo-js">
     <h2>Cotizador y Disponibilidad de Servicios</h2>
-    <p class="subtitulo-cotizador">Consulta nuestros tratamientos disponibles, ordena por tarifa y calcula tu paquete al instante.</p>
+    <p class="subtitulo-cotizador">Consulta nuestros servicios, productos y promociones disponibles, ordena por precio y calcula tu pedido al instante.</p>
 
     <div class="barra-herramientas-catalogo">
         <button type="button" onclick="generarReporteCatalogo()">Todos los Servicios</button>
@@ -186,7 +186,7 @@
         <form id="form-cotizador-spa" onsubmit="procesarCotizacionFormulario(event)">
             <div class="fila-formulario">
                 <div class="campo-grupo">
-                    <label for="select-tratamiento">Tratamiento:</label>
+                    <label id="etiqueta-item" for="select-tratamiento">Servicio / Producto:</label>
                     <select id="select-tratamiento" onchange="actualizarDatosSeleccion()" required></select>
                 </div>
 
@@ -196,7 +196,7 @@
                 </div>
 
                 <div class="campo-grupo">
-                    <label for="cantidad-sesiones">N.º de sesiones:</label>
+                    <label id="etiqueta-cantidad" for="cantidad-sesiones">N.º de sesiones:</label>
                     <input type="number" id="cantidad-sesiones" min="1" value="1" oninput="actualizarVistaPrevia()" required>
                     <small id="texto-stock-disponible"></small>
                 </div>
