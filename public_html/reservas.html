@@ -38,6 +38,14 @@
         <h1>Belleza Serena</h1>
 
     </div>
+    
+    <button type="button"
+        class="boton-menu-hamburguesa"
+        aria-label="Abrir o cerrar menú de navegación"
+        aria-expanded="false"
+        onclick="toggleMenuResponsive()">
+        ☰ Menú
+        </button>
 
 
     <nav class="menu">
@@ -78,7 +86,7 @@
 
 <section class="formulario-reserva">
 
-
+<div id="resumen-reserva-js"></div>
 <form onsubmit="confirmarReserva(event)">
 
 
@@ -257,13 +265,12 @@
 
 
     </fieldset>
+<div id="mensaje-error-reserva" class="aviso-validacion" style="display: none;"></div>
+<div id="mensaje-exito-reserva" class="tarjeta-comprobante-cotizacion" style="display: none;"></div>
 
-        
-    <button type="submit" class="boton-formulario">
+<button type="submit" class="boton-formulario">
     Enviar reserva
 </button>
-    
-    </button>
 
 
     <button
@@ -325,8 +332,7 @@
 
 </footer>
     
-        <script src="js/funciones.js"></script>
+        <script src="JS/funciones.js"></script>
 
 </body>
-
 </html>

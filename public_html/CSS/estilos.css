@@ -2,7 +2,7 @@
    1. CONFIGURACIÓN GENERAL Y FUENTES
    ========================================= */
 
-* {
+*{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -1555,4 +1555,295 @@ h1, h2, h3 {
 .entrada-blog:hover img,
 .icono-producto:hover {
     transform: scale(1.05);
+}
+
+.grid-beneficios {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.grid-beneficios .tarjeta {
+    width: 100%;
+}
+
+@media screen and (max-width: 900px) {
+    .grid-beneficios {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .grid-beneficios {
+        grid-template-columns: 1fr;
+    }
+}
+
+.gestion-catalogo-js {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.gestion-catalogo-js button {
+    background-color: #b56576;
+    color: #ffffff;
+    border: none;
+    padding: 10px 16px;
+    margin: 5px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+.gestion-catalogo-js button:hover {
+    background-color: #8c2d2d;
+}
+
+@media screen and (max-width: 768px) {
+    .menu.responsive {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+.gestion-catalogo-js {
+    max-width: 960px;
+    margin: 40px auto;
+    padding: 25px;
+    background-color: #fffafa;
+    border: 1px solid #ead6d6;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.subtitulo-cotizador {
+    color: #6b4c4c;
+    margin-bottom: 20px;
+}
+
+.barra-herramientas-catalogo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.barra-herramientas-catalogo button,
+#btn-confirmar-cotizacion {
+    background-color: #b56576;
+    color: #ffffff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 22px;
+    cursor: pointer;
+    font-size: 0.92rem;
+    transition: background-color 0.2s ease;
+}
+
+.barra-herramientas-catalogo button:hover,
+#btn-confirmar-cotizacion:hover {
+    background-color: #8c2d2d;
+}
+
+#btn-confirmar-cotizacion:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.titulo-tabla-dinamica {
+    color: #5a3e3e;
+    margin: 15px 0 10px 0;
+}
+
+.tabla-spa-profesional {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 25px;
+    background-color: #ffffff;
+}
+
+.tabla-spa-profesional th {
+    background-color: #f3e6e6;
+    color: #5a3e3e;
+    padding: 10px;
+    border: 1px solid #e2caca;
+}
+
+.tabla-spa-profesional td {
+    padding: 10px;
+    border: 1px solid #eee0e0;
+    color: #4a3535;
+}
+
+.btn-fila-seleccionar {
+    background-color: #f3e6e6;
+    color: #5a3e3e;
+    border: 1px solid #cfaaaa;
+    padding: 5px 12px;
+    border-radius: 14px;
+    cursor: pointer;
+}
+
+.btn-fila-seleccionar:hover:not(:disabled) {
+    background-color: #b56576;
+    color: #ffffff;
+}
+
+.badge-agotado {
+    background-color: #f8d7da;
+    color: #842029;
+    padding: 3px 8px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.panel-cotizador-profesional {
+    background-color: #ffffff;
+    border: 1px solid #e5cfcf;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: left;
+}
+
+.panel-cotizador-profesional h3 {
+    color: #5a3e3e;
+    text-align: center;
+    margin-top: 0;
+}
+
+.fila-formulario {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.campo-grupo {
+    display: flex;
+    flex-direction: column;
+}
+
+.campo-grupo label {
+    font-weight: bold;
+    color: #5a3e3e;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+.campo-grupo select,
+.campo-grupo input {
+    padding: 9px 12px;
+    border: 1px solid #cfaaaa;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    color: #3d2b2b;
+}
+
+.campo-grupo input[readonly] {
+    background-color: #f7efef;
+    font-weight: bold;
+    color: #6b4c4c;
+    cursor: not-allowed;
+}
+
+.campo-grupo small {
+    color: #7a5c5c;
+    margin-top: 4px;
+    font-size: 0.8rem;
+}
+
+.aviso-validacion {
+    background-color: #fdecea;
+    color: #8c2d2d;
+    border: 1px solid #e0a8a8;
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+}
+
+.tarjeta-comprobante-cotizacion {
+    background-color: #faf2f2;
+    border: 1px solid #d4b5b5;
+    padding: 18px;
+    border-radius: 8px;
+    margin-top: 18px;
+}
+
+.tarjeta-comprobante-cotizacion h4 {
+    color: #5a3e3e;
+    margin: 0 0 10px 0;
+}
+
+.total-cotizacion {
+    color: #8c2d2d;
+    font-size: 1.15rem;
+    margin: 12px 0;
+}
+
+@media screen and (max-width: 768px) {
+    .fila-formulario {
+        grid-template-columns: 1fr;
+    }
+
+    .menu.responsive {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+.boton-menu-hamburguesa {
+    display: none;
+    background-color: #b56576;
+    color: #ffffff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+.boton-menu-hamburguesa:hover {
+    background-color: #8c2d2d;
+}
+
+@media screen and (max-width: 768px) {
+    .encabezado {
+        position: relative;
+        flex-wrap: wrap;
+    }
+
+    .boton-menu-hamburguesa {
+        display: inline-block;
+    }
+
+    .menu {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        gap: 6px;
+        margin-top: 12px;
+        padding: 12px;
+        background-color: #fffafa;
+        border: 1px solid #ead6d6;
+        border-radius: 10px;
+    }
+
+    .menu.responsive {
+        display: flex;
+    }
+
+    .menu a {
+        padding: 8px 12px;
+        border-radius: 6px;
+    }
 }
