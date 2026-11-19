@@ -59,36 +59,39 @@
             </section>
 
             <section class="formulario-reserva">
-                <form onsubmit="mostrarContacto(event)">
-                    <fieldset>
-                        <legend>1. Identificación del Consumidor Reclamante</legend>
-                        
-                        <label for="nombre">Nombre completo:</label>
-                        <input type="text" id="nombre" required placeholder="Ingrese sus nombres y apellidos">
-                        
-                        <label for="email">Correo electrónico:</label>
-                        <input type="email" id="email" required placeholder="ejemplo@correo.com">
+                <form onsubmit="validarFormularioReclamo(event)">
+    <fieldset>
+        <legend>1. Identificación del Consumidor Reclamante</legend>
+        
+        <label for="nombre">Nombre completo:</label>
+        <input type="text" id="nombre" name="nombre" required placeholder="Ingrese sus nombres y apellidos">
+        
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="correo-reclamo" name="correo" required placeholder="ejemplo@correo.com">
 
-                        <label for="telefono">Teléfono / Celular:</label>
-                        <input type="tel" id="telefono" required placeholder="999999999">
-                    </fieldset>
+        <label for="telefono">Teléfono / Celular:</label>
+        <input type="tel" id="telefono" name="telefono" required placeholder="999999999">
+    </fieldset>
 
-                    <fieldset>
-                        <legend>2. Detalle del Reclamo</legend>
-                        
-                        <label for="tipo">Tipo de solicitud:</label>
-                        <select id="tipo">
-                            <option>Reclamo (Disconformidad relacionada a los productos o servicios)</option>
-                            <option>Queja (Disconformidad no relacionada a la atención)</option>
-                        </select>
+    <fieldset>
+        <legend>2. Detalle del Reclamo</legend>
+        
+        <label for="tipo">Tipo de solicitud:</label>
+        <select id="tipo" name="tipo">
+            <option>Reclamo (Disconformidad relacionada a los productos o servicios)</option>
+            <option>Queja (Disconformidad no relacionada a la atención)</option>
+        </select>
 
-                        <label for="detalle">Detalle de los hechos:</label>
-                        <textarea id="detalle" required placeholder="Describa detalladamente el motivo de su reclamo o queja..."></textarea>
-                    </fieldset>
+        <label for="detalle">Detalle de los hechos:</label>
+        <textarea id="detalle-reclamo" name="detalle" required placeholder="Describa detalladamente el motivo de su reclamo o queja..."></textarea>
+    </fieldset>
 
-                    <button type="submit" class="boton-formulario">Enviar Reclamo</button>
-                    <button type="reset" class="boton-limpiar">Limpiar Campos</button>
-                </form>
+    <button type="submit" class="boton-formulario">Enviar Reclamo</button>
+    <button type="reset" class="boton-limpiar">Limpiar Campos</button>
+
+    <div id="mensaje-error-reclamo" class="alerta-error" style="display: none;"></div>
+    <div id="mensaje-exito-reclamo" class="tarjeta-comprobante-cotizacion" style="display: none; margin-top: 20px;"></div>
+</form>
             </section>
         </main>
 

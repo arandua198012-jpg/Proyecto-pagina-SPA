@@ -11,6 +11,10 @@ const matrizTratamientos = [
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
+    const inputFechaReserva = document.getElementById("fecha");
+if (inputFechaReserva) {
+    inputFechaReserva.addEventListener("change", validarHorarioPorFecha);
+}
     generarReporteCatalogo();
     cargarSelectorTratamientos();
     cargarSelectorReservaCompleto();
@@ -104,7 +108,6 @@ function generarReporteCatalogo(lista = matrizTratamientos, titulo = "Tarifario 
 
     htmlTabla += `</tbody></table>`;
     contenedorReporte.innerHTML = htmlTabla;
-    resaltarFilaEconomica();
 }
 
 function cargarSelectorTratamientos() {
@@ -156,6 +159,16 @@ function seleccionarDesdeTabla(codigo) {
     if (!selector) return;
     selector.value = codigo;
     actualizarDatosSeleccion();
+
+    document.querySelectorAll("#tabla-catalogo tbody tr").forEach((fila) => {
+        fila.style.outline = "";
+    });
+
+    const filaElegida = document.querySelector(`#tabla-catalogo tbody tr[data-codigo="${codigo}"]`);
+    if (filaElegida) {
+        filaElegida.style.outline = "2px solid #9e6b7b";
+    }
+
     selector.scrollIntoView({ behavior: "smooth", block: "center" });
 }
 
@@ -417,6 +430,8 @@ function cargarResumenEnReserva() {
             <p class="subtitulo-cotizador">
                 ¿Ya revisaste tarifas y descuentos? Puedes <a href="servicios.html">cotizar aquí</a> o completar tu solicitud directamente.
             </p>`;
+        const labelServicio = document.getElementById("label-servicio-reserva");
+if (labelServicio) labelServicio.textContent = "Selecciona un servicio o producto:";
         return;
     }
 
@@ -490,6 +505,51 @@ function cargarResumenEnReserva() {
     }
 }
 
+function validarHorarioPorFecha() {
+    const inputFecha = document.getElementById("fecha");
+    const selectHora = document.getElementById("hora");
+    const avisoFecha = document.getElementById("aviso-fecha-reserva");
+    if (!inputFecha || !selectHora) return;
+
+    if (avisoFecha) {
+        avisoFecha.style.display = "none";
+        avisoFecha.textContent = "";
+    }
+
+    // Habilitar todas las horas primero
+    for (let i = 0; i < selectHora.options.length; i++) {
+        selectHora.options[i].disabled = false;
+    }
+
+    if (!inputFecha.value) return;
+
+    const [anio, mes, dia] = inputFecha.value.split("-").map(Number);
+    const fechaObj = new Date(anio, mes - 1, dia);
+    const diaSemana = fechaObj.getDay(); // 0 = Domingo, 6 = Sábado
+
+    if (diaSemana === 0) {
+        inputFecha.value = "";
+        selectHora.value = "";
+        if (avisoFecha) {
+            avisoFecha.textContent = "Los domingos el local está cerrado. Por favor selecciona un día de lunes a sábado.";
+            avisoFecha.style.display = "block";
+        }
+        return;
+    }
+
+    if (diaSemana === 6) {
+        for (let i = 0; i < selectHora.options.length; i++) {
+            const valHora = selectHora.options[i].value;
+            if (valHora && valHora > "17:00") {
+                selectHora.options[i].disabled = true;
+            }
+        }
+        if (selectHora.value > "17:00") {
+            selectHora.value = "";
+        }
+    }
+}
+
 function confirmarReserva(evento) {
     evento.preventDefault();
 
@@ -543,14 +603,24 @@ function confirmarReserva(evento) {
         mostrarAlertaReserva(errorBox, "La fecha de reserva no puede ser anterior a hoy.");
         return;
     }
-
-    localStorage.removeItem("cotizacionBellezaSerena");
+    const diaSemana = fechaElegida.getDay();
+    if (diaSemana === 0) {
+        mostrarAlertaReserva(errorBox, "Los domingos permanecemos cerrados. Selecciona una fecha de lunes a sábado.");
+        return;
+    }
+    if (diaSemana === 6 && hora > "17:00") {
+        mostrarAlertaReserva(errorBox, "Los sábados atendemos únicamente hasta las 5:00 p.m.");
+        return;
+    }
 
     if (exitoBox) {
+        const etiquetaConfirmacion = servicioValor.startsWith("PRD")
+            ? "Producto"
+            : (servicioValor.startsWith("PRM") ? "Promoción" : "Servicio");
         exitoBox.innerHTML = `
             <h4>Solicitud de Reserva Registrada — Belleza Serena</h4>
             <p><strong>Cliente:</strong> ${nombre} ${apellido}</p>
-            <p><strong>Servicio:</strong> ${servicioTexto}</p>
+            <p><strong>${etiquetaConfirmacion}:</strong> ${servicioTexto}</p>
             <p><strong>Fecha y Hora:</strong> ${fecha} a las ${hora}</p>
             <p><strong>Contacto preferido:</strong> ${metodoContacto} (${correo} / ${telefono})</p>
             ${comentario ? `<p><strong>Comentario:</strong> ${comentario}</p>` : ""}
@@ -666,13 +736,19 @@ function validarFormularioReclamo(evento) {
     }
 
     const codigoReclamo = "REC-" + Math.floor(1000 + Math.random() * 9000);
+    const tipoSelect = document.getElementById("tipo");
+    const tipoTexto = tipoSelect && tipoSelect.value.toLowerCase().includes("queja")
+        ? "Queja"
+        : "Reclamo";
 
     if (exitoBox) {
         exitoBox.innerHTML = `
-            <h4>Hoja de Reclamaciones Registrada — Belleza Serena</h4>
+            <h4>Constancia de ${tipoTexto} Recibida — Belleza Serena</h4>
             <p><strong>Código de registro:</strong> ${codigoReclamo}</p>
-            <p><strong>Usuario:</strong> ${nombre} (${correo})</p>
-            <p>Tu solicitud ha quedado registrada para atención interna.</p>
+            <p><strong>Consumidor:</strong> ${nombre}</p>
+            <p><strong>Correo:</strong> ${correo}</p>
+            <p><strong>Tipo:</strong> ${tipoTexto}</p>
+            <p>Su ${tipoTexto.toLowerCase()} ha sido recibido y registrado correctamente. Nuestro equipo revisará su caso y se pondrá en contacto a la brevedad.</p>
         `;
         exitoBox.style.display = "block";
         exitoBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
